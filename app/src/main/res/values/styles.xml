@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="botonrectoNumeros" parent="Widget.Material3.Button">
+    <item name="android:textColor">@color/numeros</item>
+    <item name="android:backgroundTint">@color/boton</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.Material3.Rect</item>
+    <item name="android:fontFamily">@font/digitaldreamfat</item>
+</style>
+
+<style name="botonrectoOperadores" parent="Widget.Material3.Button">
+    <item name="android:textColor">@color/numeros</item>
+    <item name="android:backgroundTint">@color/teclasOperadores</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.Material3.Rect</item>
+    <item name="android:fontFamily">@font/digitaldreamfat</item>
+</style>
+
+    <style name="ShapeAppearance.Material3.Rect" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">0dp</item>
+    </style>
+
+</resources>
