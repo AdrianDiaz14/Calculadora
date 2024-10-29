@@ -11,11 +11,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Calculator calculator;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        calculator = new Calculator();
 
         TextView textResultado = findViewById(R.id.textResultado);
 
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.buttonIgual).setOnClickListener(v -> {
             String valor = textResultado.getText().toString();
-            int resultado = calculate(valor);
+            int resultado = calculator.calculate(valor);
             textResultado.setText(String.valueOf(resultado));
         });
     }
