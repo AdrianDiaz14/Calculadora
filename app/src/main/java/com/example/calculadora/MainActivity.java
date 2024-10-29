@@ -39,67 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // Botón de Clear (C)
         findViewById(R.id.buttonC).setOnClickListener(v -> textResultado.setText(""));
 
-
-        findViewById(R.id.button1).setOnClickListener(v -> {
-            textResultado.append("1");
-        });
-
-        findViewById(R.id.button2).setOnClickListener(v -> {
-            textResultado.append("2");
-        });
-
-        findViewById(R.id.button3).setOnClickListener(v -> {
-            textResultado.append("3");
-        });
-
-        findViewById(R.id.button4).setOnClickListener(v -> {
-            textResultado.append("4");
-        });
-
-        findViewById(R.id.button5).setOnClickListener(v -> {
-            textResultado.append("5");
-        });
-
-        findViewById(R.id.button6).setOnClickListener(v -> {
-            textResultado.append("6");
-        });
-
-        findViewById(R.id.button7).setOnClickListener(v -> {
-            textResultado.append("7");
-        });
-
-        findViewById(R.id.button8).setOnClickListener(v -> {
-            textResultado.append("8");
-        });
-
-        findViewById(R.id.button9).setOnClickListener(v -> {
-            textResultado.append("9");
-        });
-
-        findViewById(R.id.button0).setOnClickListener(v -> {
-            textResultado.append("0");
-        });
-
-        findViewById(R.id.buttonMas).setOnClickListener(v -> {
-            textResultado.append("+");
-        });
-
-        findViewById(R.id.buttonMenos).setOnClickListener(v -> {
-            textResultado.append("-");
-        });
-
-        findViewById(R.id.buttonMultiplicar).setOnClickListener(v -> {
-            textResultado.append("*");
-        });
-
-        findViewById(R.id.buttonDividir).setOnClickListener(v -> {
-            textResultado.append("/");
-        });
-
-        findViewById(R.id.buttonC).setOnClickListener(v -> {
-            textResultado.setText("");
-        });
-
         findViewById(R.id.buttonIgual).setOnClickListener(v -> {
             String valor = textResultado.getText().toString();
             int resultado = calculate(valor);
@@ -112,19 +51,19 @@ public class MainActivity extends AppCompatActivity {
         // Verifica si la operación no contiene operadores
         int resultado = convertirSiEsNumero(operacion);
         if (resultado != -1) {
-            return resultado;  // Si es un número, retorna el resultado
+            return resultado;
         }
 
-        // Valida si la operación está bien formulada
+        // Comprueba que la operación esté bien formulada
         if (!esOperacionValida(operacion)) {
             TextView textResultado = findViewById(R.id.textResultado);
             textResultado.setText("-1");
-            return -1;  // Retorna -1 si la operación no es válida
+            return -1;
         }
 
         // Resuelve multiplicaciones y divisiones
-        operacion = operaMultiplicaciones(operacion);
-        operacion = operaDivisiones(operacion);
+        operacion = resolverMultiplicaciones(operacion);
+        operacion = resolverDivisiones(operacion);
 
         // Resuelve sumas y restas
         if (operacion.contains("+")) {
@@ -133,10 +72,9 @@ public class MainActivity extends AppCompatActivity {
             return resolverResta(operacion);
         }
 
-        // Convertir la operación a un número si no hay más operadores
+        // Convierte la operación a un número cuando ya no hay más operadores
         return convertirSiEsNumero(operacion);
     }
-
 
     // Verifica que no haya más de un operador junto en la ecuación
     private boolean esOperacionValida(String operacion) {
@@ -160,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         return -1;
     }
 
-    public String operaMultiplicaciones(String operacion) {
+    public String resolverMultiplicaciones(String operacion) {
         while (operacion.contains("*")) {
             int indice = operacion.indexOf("*");
             int parte1 = indice - 1;
@@ -185,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         return operacion;
     }
 
-    public String operaDivisiones(String operacion) {
+    public String resolverDivisiones(String operacion) {
         while (operacion.contains("/")) {
             int indice = operacion.indexOf("/");
             int parte1 = indice - 1;
