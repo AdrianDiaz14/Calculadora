@@ -1,6 +1,6 @@
+package com.example.calculadora;
 
-
-
+public class Calculator{
     public int calculate(String operacion) {
 
         // Verifica si la operación no contiene operadores
@@ -112,3 +112,4 @@
         String[] bloques = operacion.split("-");
         return calculate(bloques[0]) - calculate(bloques[1]);
     }
+}
