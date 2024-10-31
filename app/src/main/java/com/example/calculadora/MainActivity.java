@@ -5,14 +5,24 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * Clase principal de la aplicación de Calculadora.
+ * Configura la interfaz de usuario y maneja los eventos de los botones.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Instancia de la clase Calculator, utilizada para realizar operaciones de cálculo.
+     */
     private Calculator calculator;
-    
+
+    /**
+     * Método que se ejecuta al crear la actividad. Inicializa los elementos de la UI y sus listeners.
+     *
+     * @param savedInstanceState Si la actividad se está re-creando desde un estado previamente guardado,
+     *                           este Bundle contiene los datos del estado anterior.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
